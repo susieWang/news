@@ -1,0 +1,414 @@
+.transformAll(@value){
+  -webkit-transform: @value ;
+  -moz-transform:  @value;
+  -ms-transform:  @value;
+  -o-transform:  @value;
+  transform:  @value;
+}
+.transitionAll(@vaule){
+  -webkit-transition: @vaule;
+  -moz-transition: @vaule;
+  -ms-transition:@vaule;
+  -o-transition: @vaule;
+  transition: @vaule;
+}
+
+.transform-originAll(@val){
+  -webkit-transform-origin:@val;
+  -moz-transform-origin:@val;
+  -ms-transform-origin:@val;
+  -o-transform-origin:@val;
+  transform-origin:@val;
+}
+.flex-display(){
+  display:-webkit-flex;
+  display:inline-flex;
+  display: flex;
+  display:-moz-box;
+  display:-webkit-box;
+}
+
+.flex-item(@columns:1){
+  flex:@columns;
+  -webkit-flex:@columns;
+  -ms-flex:@columns;
+  -moz-box-flex:@columns;
+  -webkit-box-flex:@columns;
+}
+
+.area-box-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  .transformAll(translateY(100%));
+  &.show {
+    .transformAll(translateY(0));
+    opacity: 1;
+    .scroll-box-wrapper {
+      .transformAll(translateY(0));
+
+    }
+  }
+  &.hide {
+    .transformAll(translateY(100%));
+  }
+  .scroll-box-wrapper{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    .transitionAll(all .5s);
+    .transformAll(translateY(100%));
+    .px2rem(height,520);
+    .scroll-content{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index:1;
+    }
+    .title{
+      .px2rem(height,88);
+      background:#f7f7f7;
+      .border-handle(1000,rgb(221,221,221));
+      padding:0 0.3rem;
+      box-sizing:border-box;
+      p{
+        color:#1ea0f6;
+        .px2rem(line-height,88);
+        .px2rem(font-size,32);
+        float:left;
+      }
+      .back{
+        width:20%;
+      }
+      .middle{
+        width:60%;
+        text-align: center;
+        text{
+          color: @gray9;
+          .px2rem(font-size,36);
+          .px2rem(line-height,@headerH);
+        }
+      }
+      span,p{
+        color:#1ea0f6;
+        .px2rem(line-height,88);
+        .px2rem(font-size,32);
+        float:left;
+      }
+      p+p{
+        float:right;
+      }
+    }
+    .scroll-box{
+      //.flex-display();
+      background:#fff;
+      padding-bottom:  constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+      li{
+        position:relative;
+        width: 94%;
+        margin: 0 3%;
+        .px2rem(height,80);
+        .px2rem(line-height,80);
+        .px2rem(font-size,28);
+        //border-bottom:1px solid #e8e8e8;
+        .iconImg{
+          position: absolute;
+          left:0;
+          .px2rem(top,15);
+          .px2rem(width,50);
+          display: inline-block;
+        }
+        span{
+          position: absolute;
+          .px2rem(left,60);
+          display: inline-block;
+          .px2rem(line-height,80);
+        }
+      }
+    }
+    .scroll-col{
+      .flex-item(@columns:1);
+    }
+    .scroll-viewport{
+      .px2rem(height,350);
+      overflow: hidden;
+      background:#fff;
+      margin:0.41rem 0;
+      position: relative;
+    }
+    .scroll-wheel {
+      position: absolute;
+      .px2rem(height,71);
+      .px2rem(line-height,70);
+      top:50%;
+      margin-top:-0.35rem;
+      width: 100%;
+      .border-handle(1010,#eee);
+
+    }
+    .scroll-wheel:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      box-sizing: border-box;
+      pointer-events: none;
+      border: 0;
+      transform-origin: 0 0;
+      -webkit-transform-origin: 0 0;
+      z-index: 1;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-color: #eee;
+      border-radius: 0;
+      z-index: 10;
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+      -webkit-transform: scale(.5);
+    }
+    .scroll-item{
+      margin:0 auto;
+      text-align:center;
+      li{
+        .px2rem(height,70);
+        .px2rem(line-height,70);
+        .px2rem(font-size,32);
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        color:#ccc;
+        &.selected{
+          color:#333;
+        }
+        &.selectedFirst{
+          .px2rem(font-size,30);
+        }
+        &.selectedSecond{
+          .px2rem(font-size,28);
+        }
+        &.selectedThird{
+          .px2rem(font-size,30);
+        }
+      }
+    }
+
+  }
+  .scroll-box-wrapper.full{
+    height:100%;
+    .scroll-content{
+      height:100%;
+    }
+    .scroll-box{
+      height:100%;
+      width:100%;
+      overflow-y: scroll;
+    }
+    .scroll-viewport{
+      .px2rem(height,950);
+    }
+  }
+}
+
+
+
+
+@-webkit-keyframes ani-show
+{
+  from {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes ani-show
+{
+  from {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+
+.selectContainer,.selectMiddleContainer{
+  width:100%;
+  height:100%;
+  .selectContentView{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    .transformAll(translateY(100%));
+    &.show{
+      .transformAll(translateY(0));
+      opacity: 1;
+      .select-content {
+        .transformAll(translateY(0));
+      }
+    }
+    .select-content{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width:100%;
+      background: #fff;
+      .transitionAll(all .5s);
+      .transformAll(translateY(100%));
+      li{
+        position:relative;
+        width: 94%;
+        margin: 0 3%;
+        .px2rem(font-size,26);
+        .px2rem(height,80);
+        .px2rem(line-height,80);
+        //border-bottom:1px solid #e8e8e8;
+        .iconImg{
+          position: absolute;
+          left:0;
+          .px2rem(top,15);
+          .px2rem(width,50);
+          display: inline-block;
+        }
+        span.item{
+          position: absolute;
+          .px2rem(left,60);
+          display: inline-block;
+          .px2rem(line-height,80);
+        }
+        i.select{
+          position: absolute;
+          .px2rem(right,5);
+        }
+      }
+    }
+    li.selectLastItem{
+      display: block;
+      .px2rem(margin-top,30);
+      .px2rem(height,100);
+      .px2rem(margin-bottom,20);
+    }
+    .selectItem {
+      width:100%;
+      background-color:#fff;
+    }
+    .select{
+      color: @themeColor;
+    }
+    .splitLine {
+      display: block;
+      width:90%;
+      height:1px;
+      .px2rem(margin-left,40);
+      background-color:#ddd
+    }
+    .selectedSplitLine{
+      background-color:@themeColor;
+    }
+    .selectFirstItem{
+      position: relative;
+      display: block;
+      .px2rem(font-size,30);
+      .splitLine {
+        display: block;
+        width:100%;
+        height:1px;
+        margin-left:0;
+        background-color:#ddd
+      }
+      .select-close{
+        position: absolute;
+        .px2rem(left, 0);
+        .px2rem(font-size,40);
+        color: #ddd;
+      }
+    }
+    .selectTitle{
+      text-align: center;
+      color: #999;
+    }
+    .selectLastItem{
+      display: block;
+      .px2rem(margin-top,30);
+      .px2rem(height,120);
+      .px2rem(margin-bottom,30);
+    }
+    .selectBottom{
+      background-color:#e8e8e8
+    }
+    .selectEl{
+      position:relative;
+      width:90%;
+      .px2rem(min-height,80);
+      .px2rem(line-height,80);
+      padding-left: 5%;
+      padding-right: 5%;
+      span{
+        display: inline-block;
+        vertical-align: middle;
+        .px2rem(line-height,40);
+        white-space: pre-wrap;
+      }
+    }
+    .selectElTitle{
+      .px2rem(height,80);
+      .px2rem(line-height,80);
+    }
+    .selectItemText{
+      color:#999;
+    }
+    .selectItemTitle{
+      textAlign:center;
+      color:#333;
+    }
+    .selectedItemText{
+      color:@themeColor;
+    }
+  }
+}
+.selectMiddleContainer{
+  .selectContentView{
+    .select-content{
+      overflow: hidden;
+      position: fixed;
+      bottom: 10%;
+      left: 5%;
+      width:90%;
+      height:80%;
+      background: #fff;
+      .px2rem(border-radius,8);
+      .transitionAll(all .5s);
+      .transformAll(translateY(100%));
+      ul{
+        display: block;
+        width:100%;
+        height:100%;
+        overflow: auto;
+      }
+    }
+  }
+}
+

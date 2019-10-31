@@ -1,0 +1,198 @@
+@-webkit-keyframes antRotate {
+  to {
+      -webkit-transform: rotate(405deg);
+      transform: rotate(405deg)
+  }
+}
+
+@keyframes antRotate {
+  to {
+      -webkit-transform: rotate(405deg);
+      transform: rotate(405deg)
+  }
+}
+@-webkit-keyframes antSpinMove {
+  to {
+      opacity: 1
+  }
+}
+
+@keyframes antSpinMove {
+  to {
+      opacity: 1
+  }
+}
+#loading{
+    position: fixed;
+    top:45%;
+    left:50%;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+    color: #1890ff;
+    text-align: center;
+    vertical-align: middle;
+    opacity: 1;
+    margin-left:-13px;
+    .loading{
+      position: relative;
+      display: inline-block;
+      font-size: 20px;
+      width: 20px;
+      height:20px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-animation: antRotate 1.2s infinite linear;
+      animation: antRotate 1.2s infinite linear;
+    }
+    .ant-spin-dot-item:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+    .ant-spin-dot-item:nth-child(2) {
+        top: 0;
+        right: 0;
+        -webkit-animation-delay: .4s;
+        animation-delay: .4s
+    }
+    .ant-spin-dot-item:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        -webkit-animation-delay: .8s;
+        animation-delay: .8s
+    }
+    .ant-spin-dot-item:nth-child(4) {
+        bottom: 0;
+        left: 0;
+        -webkit-animation-delay: 1.2s;
+        animation-delay: 1.2s
+    }
+    .ant-spin-dot-item{
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 9px;
+      background-color: #ff4018;
+      border-radius: 100%;
+      -webkit-transform: scale(.75);
+      -ms-transform: scale(.75);
+      transform: scale(.75);
+      -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      opacity: .3;
+      -webkit-animation: antSpinMove 1s infinite linear alternate;
+      animation: antSpinMove 1s infinite linear alternate;
+    }
+}
+
+#popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index: 9999999;
+  background-color: rgba(0, 0, 0, 0.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  div{
+    display:inline-block;
+    .px2rem(max-width, 540);
+    padding:.24rem .4rem;
+    .px2rem(padding-left, 40);
+    .px2rem(padding-right, 40);
+    .px2rem(padding-top, 24);
+    .px2rem(padding-bottom, 24);
+    text-align: left;
+    color:@white;
+    .px2rem(font-size, 28);
+    .px2rem(line-height, 40);
+    box-sizing:border-box;
+    background-color: rgba(0, 0, 0, 0.9);
+    .px2rem(border-radius, 12);
+    margin: 70% auto;
+  }
+}
+
+.popup-dialog {
+  .popup-dialog-mask {
+    position: fixed;
+    background: rgba(0,0,0,.6);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 998;
+  }
+  .popup-dialog-main {
+    .px2rem(width, 540);
+    .px2rem(border-radius, 12);
+    background: @white;
+    position: fixed;
+    left: 50%;
+    z-index: 999;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    .dialog-close {
+      display: none;
+    }
+    .popup-dialog-content{
+      .px2rem(padding-left, 32);
+      .px2rem(padding-right, 32);
+      .px2rem(padding-top, 46);
+      .px2rem(padding-bottom, 46);
+      color: #030303;
+      border-bottom: solid 1px @grayf5;
+    }
+    .popup-dialog-title{
+      text-align: center;
+      .px2rem(font-size, 34);
+      .px2rem(padding-bottom, 20);
+    }
+    .popup-dialog-text {
+      .px2rem(font-size, 30);
+      color: @gray6;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .popup-dialog-botton {
+      text-align: center;
+      .px2rem(font-size, 32);
+      color: @lakeBlue;
+      //.border-handle(1000,rgba(0, 0, 0, .25));
+      .btn {
+        box-sizing: border-box;
+        display: inline-block;
+        .px2rem(height, 88);
+        .px2rem(line-height, 88);
+        text-align: center;
+        width: 50%;
+        &:nth-child(2n) {
+          border-left:solid 1px @grayf5;
+        }
+        &:only-child {
+          width: 100%;
+        }
+      }
+      .gray{
+        color:@gray9
+      }
+      .blue{
+        color:@lakeBlue;
+      }
+    }
+  }
+}

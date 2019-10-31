@@ -1,0 +1,210 @@
+@listItemH : 156;
+@listTotalItemH: 200;
+@paddingLeft:30;
+@paddingRight:30;
+
+@statusWaitColor:@themeColor;
+@statusWarningColor:#ff7855;
+@statusOverColor:#33cc7a;
+
+.bill-container{
+  .tips{
+    .px2rem(padding-left,@paddingLeft);
+    .px2rem(padding-right,@paddingRight);
+    .px2rem(margin-top,20);
+    p{
+      .px2rem(line-height,44);
+      .px2rem(font-size,22);
+      color: @gray9;
+    }
+    span{
+      color:@themeColor;
+    }
+  }
+}
+.bill-list-item{
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  .px2rem(margin-top,20);
+  background: #fff;
+  .px2rem(margin-left,30);
+  .px2rem(margin-right,30);
+  .px2rem(height,156);
+  position: relative;
+  .label{
+    text-align: center;
+  }
+  .amount{
+    text-align: center;
+  }
+  .bill-arrow{
+    .px2rem(line-height,@listItemH);
+    position: absolute;
+    .px2rem(right,32);
+    .iconfont{
+      color:@grayC;
+    }
+    .iconfont:before{
+      .px2rem(font-size,50);
+    }
+  }
+  .item-detail{
+    display: flex;
+  }
+  .item-detail.item-left{
+
+  }
+  .item-status{
+    height:100%;
+    .px2rem(width,154);
+    text-align: center;
+    .iconfont:before{
+      .px2rem(font-size,28);
+    }
+    .icon-zhe:before{
+      .px2rem(font-size,26);
+      position: relative;
+      .px2rem(top,-4);
+      .px2rem(left,4);
+    }
+    .iconfont{
+       color: white;
+    }
+    .icon-parent{
+      margin: 0 auto;
+      .px2rem(width,53);
+      .px2rem(height,53);
+      .px2rem(line-height,58);
+      text-align: center;
+      background:linear-gradient(to right,#bec1cc, #abadbc);
+      background: -webkit-linear-gradient(to right,#bec1cc, #abadbc);
+      background: -moz-linear-gradient(to right,#bec1cc, #abadbc);
+      background: -o-linear-gradient(to right,#bec1cc, #abadbc);
+      .px2rem(border-radius,26);
+    }
+    .icon-over {
+      background:linear-gradient(to right,#3ad86e, #33cc98);
+      background: -webkit-linear-gradient(to right,#3ad86e, #33cc98);
+      background: -moz-linear-gradient(to right,#3ad86e, #33cc98);
+      background: -o-linear-gradient(to right,#3ad86e, #33cc98);
+    }
+    .icon-wait {
+      background:linear-gradient(to right,#56bbff, #2e99ff);
+      background: -webkit-linear-gradient(to right,#56bbff, #2e99ff);
+      background: -moz-linear-gradient(to right,#56bbff, #2e99ff);
+      background: -o-linear-gradient(to right,#56bbff, #2e99ff);
+    }
+    .icon-warning{
+      background:linear-gradient(to right,#ff763c, #fe6155);
+      background: -webkit-linear-gradient(to right,#ff763c, #fe6155);
+      background: -moz-linear-gradient(to right,#ff763c, #fe6155);
+      background: -o-linear-gradient(to right,#ff763c, #fe6155);
+    }
+    .status-desc{
+      color: @gray9;
+      .px2rem(margin-top,12);
+    }
+    .status-desc-over{
+      color:@statusOverColor;
+    }
+    .status-desc-wait{
+      color:@statusWaitColor;
+    }
+    .status-desc-warning{
+      color:@statusWarningColor;
+    }
+  }
+  .item-status i{
+    .px2rem(margin-top,34);
+    display: block;
+  }
+  .item-text{
+    height:100%;
+    .px2rem(margin-left,30);
+    .px2rem(width,350);
+    font-weight: 300;
+    .repay-date,.repay-amount{
+      display: flex;
+      color: @gray9;
+      .px2rem(font-size,24);
+    }
+    .repay-date{
+      .px2rem(margin-top,42);
+    }
+    .repay-amount{
+      .px2rem(margin-top,24);
+    }
+    .item-text-icon{
+      .px2rem(width,30);
+      .px2rem(height,30);
+      .px2rem(line-height,32);
+      text-align: center;
+      position: relative;
+      .px2rem(top,-4);
+      .px2rem(margin-right,18);
+      .iconfont{
+        color: @gray9;
+      }
+      .iconfont:before{
+        .px2rem(font-size,28);
+      }
+    }
+  }
+  .item-repay{
+    .px2rem(width,120);
+    .px2rem(height,60);
+    .px2rem(line-height,60);
+    .px2rem(border-radius,30);
+    .px2rem(font-size,28);
+    background: @themeColor;
+    color:white;
+    text-align: center;
+    .px2rem(margin-top,52);
+  }
+  .split{
+    width:1px;
+    border-left:dashed 1px @gray9;
+    .px2rem(height,88);
+    .px2rem(margin-top,34);
+  }
+}
+.bill-list-total-item{
+  .px2rem(height,@listTotalItemH);
+  .bill-arrow{
+    .px2rem(line-height,@listTotalItemH);
+  }
+  .bill-total-amount{
+    height:100%;
+    width: 63.7%;
+  }
+  .bill-total-dates{
+    width:27.5%;
+    .px2rem(font-size,28);
+    .label,.amount{
+      text-align: left;
+    }
+  }
+  .label{
+    .px2rem(margin-top,52);
+    .px2rem(font-size,24);
+    color: @gray9;
+  }
+  .amount{
+    .px2rem(margin-top,22);
+    .px2rem(font-size,28);
+    color: @strongGray;
+  }
+  .amount span{
+    .px2rem(font-size,50)
+  }
+}
+
+.repay-add-bank{
+  position: fixed;
+  top:0;
+  height:100%;
+  width: 100%;
+  left:0;
+  background: white;
+}

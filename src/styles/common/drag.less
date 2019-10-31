@@ -1,0 +1,73 @@
+@-webkit-keyframes drag-loading {
+    to {
+      -webkit-transform: rotateZ(0);
+    }
+    from {
+      -webkit-transform: rotateZ(-360deg);
+    }
+  }
+  
+  @keyframes drag-loading {
+    to {
+      transform: rotateZ(0);
+    }
+    from {
+      transform: rotateZ(-360deg);
+    }
+  }
+  
+  .drag-load {
+    .loading-info{
+      display: block;
+      text-align: center;
+      .px2rem(font-size,28);
+      .px2rem(padding-top,36);
+      .px2rem(padding-bottom,36);
+      color: #ccc;
+      span{vertical-align: middle;color: @gray9;}
+      .load-no-data{
+        .px2rem(font-size,24);
+      }
+      .drag-load-loading{
+        i{
+          background: url("../images/dragload_loading.png") no-repeat;
+          background-size: cover;
+          .px2rem(width,40);
+          .px2rem(height,40);
+          display: inline-block;
+          -webkit-animation: drag-loading 1s linear infinite;
+          animation: drag-loading 1s linear infinite;
+        }
+        .px2rem(width,40);
+        .px2rem(height,40);
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: .24rem;
+      }
+      .drag-load-touch-up{
+        background: url("../images/dargload_up.png") no-repeat;
+        background-size: cover;
+        .px2rem(width,32);
+        .px2rem(height,32);
+        display: inline-block;
+        vertical-align: middle;
+        .px2rem(margin-right,24);
+      }
+      .drag-load-touch-down{
+        background: url("../images/dragload_down.png") no-repeat;
+        background-size: cover;
+        .px2rem(width,32);
+        .px2rem(height,32);
+        display: inline-block;
+        vertical-align: middle;
+        .px2rem(margin-right,24);
+      }
+    }
+    .on {
+      display: block;
+    }
+    .off {
+      display : none;
+    }
+  }
+  
